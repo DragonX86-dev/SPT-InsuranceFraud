@@ -1,3 +1,4 @@
+
 # Created by https://www.toptal.com/developers/gitignore/api/unity,csharp,rider,visualstudio,visualstudiocode,windows,linux,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity,csharp,rider,visualstudio,visualstudiocode,windows,linux,macos
 
@@ -798,6 +799,7 @@ $RECYCLE.BIN/
 # Windows Installer files from build outputs
 
 # JetBrains Rider
+.idea/
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
