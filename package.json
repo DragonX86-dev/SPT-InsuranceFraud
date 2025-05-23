@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "sptVersion": "~3.11",
   "description": "All insured gear that you drop in the middle of a raid will return back to you 100% of the time regardless of trader insurance rates.",
-  "main": "dist/mod.js",
+  "main": "src/mod.js",
   "scripts": {
-    "setup": "npm i",
-    "build": "tsc"
+    "setup": "npm i"
   },
   "dependencies": {},
   "devDependencies": {

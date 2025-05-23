@@ -800,6 +800,7 @@ $RECYCLE.BIN/
 
 # JetBrains Rider
 .idea/
+package-lock.json
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
