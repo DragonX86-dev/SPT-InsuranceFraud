@@ -1,14 +1,20 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "SPT-InsuranceFraud",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "sptVersion": "~3.11",
+  "description": "All insured gear that you drop in the middle of a raid will return back to you 100% of the time regardless of trader insurance rates.",
+  "main": "dist/mod.js",
   "scripts": {
+    "setup": "npm i",
     "build": "tsc"
   },
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "winston": "3.17.0",
+    "tsyringe": "4.8.0"
   },
-  "private": true
+  "author": "DragonX86",
+  "contributors": [],
+  "license": "MIT"
 }
