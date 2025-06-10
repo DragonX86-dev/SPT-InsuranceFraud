@@ -1,6 +1,8 @@
 import {injectable} from "tsyringe";
 
+import { IInsurance } from "@spt/models/eft/profile/ISptProfile";
 import {InsuranceController} from "@spt/controllers/InsuranceController";
+import {IItem} from "@spt/models/eft/common/tables/IItem";
 
 @injectable()
 export class InsuranceControllerExtension extends InsuranceController {
@@ -32,7 +34,7 @@ export class InsuranceControllerExtension extends InsuranceController {
 
                 // Deletes the dropped property for alls item returned back to player
                 for (let i in insured.items) {
-                    delete insured.items[i].dropped;
+                    delete insured.items[i]["dropped"];
                 }
             }
 
@@ -161,7 +163,7 @@ export class InsuranceControllerExtension extends InsuranceController {
 
         if (insuredItem != undefined) {
             //If the item's dropped is true, then roll will be set to false and item will return back to player
-            if (insuredItem.dropped) {
+            if (insuredItem["dropped"]) {
                 roll = false;
             }
         }

@@ -17,6 +17,14 @@ export class InsuranceServiceExtension extends InsuranceService {
         const isDead = pmcProfile["isDead"];
         delete pmcProfile["isDead"];
 
+        const postRaidEquipmentItems: IItem[] = pmcProfile["postRaidEquipmentItems"];
+        delete pmcProfile["postRaidEquipmentItems"];
+
+        if (isDead) {
+            console.log(`lostInsuredItems = ${lostInsuredItems.map((item) => item._tpl)}`)
+            console.log(`postRaidEquipmentItems = ${postRaidEquipmentItems.map((item) => item._tpl)}`)
+        }
+
         for (const lostItem of lostInsuredItems) {
             const insuranceDetails = pmcProfile.InsuredItems.find((insuredItem) => insuredItem.itemId === lostItem._id);
             if (!insuranceDetails) {
@@ -27,8 +35,14 @@ export class InsuranceServiceExtension extends InsuranceService {
                 continue;
             }
 
-            if (!isDead && this.insuranceConfig.simulateItemsBeingTaken) {
-                insuranceDetails["dropped"] = true;
+            if (this.insuranceConfig.simulateItemsBeingTaken) {
+                if (isDead) {
+                    if (!postRaidEquipmentItems.map((item) => item._tpl).includes(lostItem._tpl)) {
+                        insuranceDetails["dropped"] = true;
+                    }
+                } else {
+                    insuranceDetails["dropped"] = true;
+                }
             }
 
             if (this.itemCannotBeLostOnDeath(lostItem, pmcProfile.Inventory.items)) {
